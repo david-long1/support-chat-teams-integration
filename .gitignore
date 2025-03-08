@@ -1,0 +1,22 @@
+# Environment variables and secrets
+.env
+token_cache.json
+last_auth_time.txt
+*.pem
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

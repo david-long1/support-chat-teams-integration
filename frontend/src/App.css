@@ -1,0 +1,308 @@
+/* src/App.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.chat-header {
+  background-color: #0078d7;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.connection-status {
+  font-size: 14px;
+  font-weight: normal;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.connection-status.connected {
+  background-color: #107C10;
+}
+
+.connection-status.disconnected {
+  background-color: #D83B01;
+}
+
+.user-info {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  gap: 10px;
+}
+
+.user-info-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex: 1;
+  font-size: 14px;
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #666;
+  text-align: center;
+  padding: 20px;
+}
+
+.message {
+  padding: 12px 15px;
+  border-radius: 8px;
+  max-width: 80%;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #E3F2FD;
+  border: 1px solid #BBDEFB;
+}
+
+.support-message {
+  align-self: flex-start;
+  background-color: #F5F5F5;
+  border: 1px solid #E0E0E0;
+}
+
+.system-message {
+  align-self: center;
+  background-color: #FFF8E1;
+  border: 1px solid #FFECB3;
+  color: #7A6400;
+  font-style: italic;
+  max-width: 90%;
+}
+
+.error-message {
+  background-color: #FFEBEE;
+  border: 1px solid #FFCDD2;
+  color: #C62828;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #666;
+}
+
+.sender {
+  font-weight: bold;
+  color: #333;
+}
+
+.timestamp {
+  color: #999;
+}
+
+.message-text {
+  font-size: 14px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  align-self: center;
+}
+
+.loading-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #999;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.loading-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
+
+.message-form {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #eee;
+  gap: 10px;
+}
+
+.message-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.message-input:focus {
+  border-color: #0078d7;
+}
+
+.send-button {
+  padding: 0 20px;
+  background-color: #0078d7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.send-button:hover {
+  background-color: #006abe;
+}
+
+.send-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.new-conversation {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.new-conversation-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #444;
+}
+
+.new-conversation-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Chatbot specific styles */
+.chatbot-message {
+  background-color: #F0F7FF;
+  border: 1px solid #CCE5FF;
+}
+
+.user-info-display {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  border-left: 3px solid #0078d7;
+  font-size: 13px;
+}
+
+.user-info-display h4 {
+  margin-bottom: 5px;
+  color: #0078d7;
+}
+
+.user-info-display p {
+  margin: 3px 0;
+}
+
+/* Fix for the option buttons */
+.chatbot-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+  justify-content: center;
+}
+
+.chatbot-option-button {
+  background-color: #f0f8ff;
+  border: 1px solid #0078d7;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #0078d7;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.chatbot-option-button:hover {
+  background-color: #0078d7;
+  color: white;
+}
+
+/* Special styling for the "Talk to a support agent" button */
+.chatbot-option-button[data-agent-connect="true"] {
+  background-color: #0078d7;
+  color: white;
+  border: 1px solid #0078d7;
+}
+
+.chatbot-option-button[data-agent-connect="true"]:hover {
+  background-color: #005a9e;
+  border-color: #005a9e;
+}
